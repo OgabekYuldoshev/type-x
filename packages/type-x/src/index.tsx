@@ -3,8 +3,11 @@ import "./styles/globals.scss";
 import { TypexProvider } from "./hooks/useTypex";
 
 import { forwardRef } from "react";
-import { BaseKit } from "./extentions";
+import StarterKit from '@tiptap/starter-kit'
+
 import EditorContent from "./components/editor-content";
+import Toolbar from "./components/toolbar";
+import { PlaceholderExtension } from "./extentions";
 
 export const TypexEditor = forwardRef<HTMLDivElement>(function Editor(_, ref) {
   return (
@@ -16,8 +19,15 @@ export const TypexEditor = forwardRef<HTMLDivElement>(function Editor(_, ref) {
           }
         }}
         extensions={[
-          BaseKit.configure()
+          StarterKit.configure({
+            dropcursor: {
+              color: "#DBEAFE",
+              width: 4,
+            },
+          }),
+          PlaceholderExtension
         ]}>
+        <Toolbar />
         <EditorContent />
       </TypexProvider>
     </div>

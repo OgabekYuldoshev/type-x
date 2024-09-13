@@ -4,9 +4,7 @@ import { EditorContent as TipTapEditorContent } from "@tiptap/react"
 const EditorContent = () => {
     const { editor } = useTypexContext()
     return (
-        <div>
-            <TipTapEditorContent editor={editor} className="focus-within:x-outline-none" />
-        </div>
+        <TipTapEditorContent editor={editor} className="x-p-4" />
     )
 }
 
