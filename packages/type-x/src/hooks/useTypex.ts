@@ -1,18 +1,21 @@
+import { Locale, useTranslation } from "@/locale";
 import { useEditor, type UseEditorOptions } from "@tiptap/react";
 import constate from "constate";
 
-export type TypexProps = UseEditorOptions;
+export type TypexProps = UseEditorOptions & {
+  locale: Locale;
+};
 
+export const useTypex = ({ locale, ...props }: TypexProps) => {
+  const editor = useEditor(props);
+  const translation = useTranslation({ locale });
 
-export const useTypex = (props: TypexProps) => {
-    const editor = useEditor(props);
+  if (!editor) {
+    throw new Error("[Type-X]: Editor is not available!");
+  }
 
-    if (!editor) {
-        throw new Error("[Type-X]: Editor is not available!");
-    }
-
-    return { editor };
-}
+  return { editor, translation };
+};
 
 const [TypexProvider, useTypexContext] = constate(useTypex);
 

@@ -1,14 +1,16 @@
-import { useTypexContext } from "@/hooks/useTypex"
-import { ActionButtons } from "./action-buttons"
+import { useTypexContext } from "@/hooks/useTypex";
+import { renderBaseMarks } from "@/constants";
 
 const Toolbar = () => {
-    const { editor } = useTypexContext()
-    return (
-        <div className="x-block x-border-b x-px-4 x-py-2 x-space-x-2">
-            <ActionButtons icon="Bold" onClick={() => editor.chain().toggleBold().run()} />
-            <ActionButtons icon="Italic" />
-        </div>
-    )
-}
+  const {
+    editor,
+    translation: { t },
+  } = useTypexContext();
+  return (
+    <div className="x-block x-border-b x-px-4 x-py-2 x-space-x-2">
+      {renderBaseMarks({ editor, t })}
+    </div>
+  );
+};
 
-export default Toolbar
+export default Toolbar;
