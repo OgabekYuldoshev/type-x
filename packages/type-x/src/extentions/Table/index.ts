@@ -1,10 +1,7 @@
 import { Table } from "@tiptap/extension-table";
-import { TableRow, TableRowOptions } from "@tiptap/extension-table-row";
-import {
-  TableHeader,
-  TableHeaderOptions,
-} from "@tiptap/extension-table-header";
-import { TableCell, TableCellOptions } from "@tiptap/extension-table-cell";
+import { TableRow, type TableRowOptions } from "@tiptap/extension-table-row";
+import { TableHeader, type TableHeaderOptions } from "@tiptap/extension-table-header";
+import { TableCell, type TableCellOptions } from "@tiptap/extension-table-cell";
 
 export interface TableOptions {
   HTMLAttributes: Record<string, any>;

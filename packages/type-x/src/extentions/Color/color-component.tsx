@@ -20,17 +20,8 @@ const HighlightComponent = () => {
   }
 
   return (
-    <ActionPopover
-      open={isOpen}
-      onOpenChange={setOpen}
-      title={t("x.highlight")}
-      icon="PaintBucket"
-    >
-      <ColorPicker
-        color={"#000000"}
-        onChange={handleSelect}
-        onReset={handleReset}
-      />
+    <ActionPopover open={isOpen} onOpenChange={setOpen} title={t("x.highlight")} icon="PaintBucket">
+      <ColorPicker color={"#000000"} onChange={handleSelect} onReset={handleReset} />
     </ActionPopover>
   );
 };

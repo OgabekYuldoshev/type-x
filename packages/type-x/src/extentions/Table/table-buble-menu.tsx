@@ -1,7 +1,7 @@
 import { createActionButtons } from "@/components/action-button";
 import { useTypexContext } from "@/hooks/useTypex";
-import { BubbleMenu, isActive, Editor } from "@tiptap/react";
-import { sticky, GetReferenceClientRect } from "tippy.js";
+import { BubbleMenu, isActive, type Editor } from "@tiptap/react";
+import { sticky, type GetReferenceClientRect } from "tippy.js";
 
 const table = createActionButtons(({ editor, t }) => [
   {

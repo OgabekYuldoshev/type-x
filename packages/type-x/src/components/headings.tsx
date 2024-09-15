@@ -54,10 +54,7 @@ const Headings = () => {
   }, [items]);
 
   return (
-    <ActionPopover
-      title={active?.title || "x.text.align.style"}
-      icon={active?.icon || "CaseSensitive"}
-    >
+    <ActionPopover title={active?.title || "x.text.align.style"} icon={active?.icon || "CaseSensitive"}>
       {items.map((props, index) => (
         <ActionButtons key={props.icon + index} {...props} />
       ))}

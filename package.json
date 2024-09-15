@@ -17,8 +17,7 @@
     "typescript": "^5.4.5"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint && pnpm format",
-    "pre-push": "pnpm lint:fix && pnpm format:fix"
+    "pre-commit": "pnpm format:fix && pnpm lint:fix"
   },
   "packageManager": "pnpm@8.15.6",
   "engines": {

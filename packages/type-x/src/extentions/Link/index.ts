@@ -2,7 +2,7 @@ import { getMarkRange } from "@tiptap/core";
 import Link from "@tiptap/extension-link";
 export { default as LinkComponent } from "./link-component";
 import { Plugin, TextSelection } from "@tiptap/pm/state";
-import { EditorView } from "@tiptap/pm/view";
+import type { EditorView } from "@tiptap/pm/view";
 
 export const LinkExtension = Link.extend({
   inclusive: false,
@@ -19,9 +19,7 @@ export const LinkExtension = Link.extend({
             }
             const $start = doc.resolve(range.from);
             const $end = doc.resolve(range.to);
-            const transaction = tr.setSelection(
-              new TextSelection($start, $end)
-            );
+            const transaction = tr.setSelection(new TextSelection($start, $end));
             view.dispatch(transaction);
           },
         },

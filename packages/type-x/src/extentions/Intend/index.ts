@@ -1,10 +1,10 @@
 import { Extension } from "@tiptap/core";
 import type { Command, Editor } from "@tiptap/core";
-import { Transaction } from "@tiptap/pm/state";
+import type { Transaction } from "@tiptap/pm/state";
 import { AllSelection, TextSelection } from "@tiptap/pm/state";
 import { isList } from "@tiptap/core";
 
-export const enum IndentProps {
+export enum IndentProps {
   max = 7,
   min = 0,
 
@@ -41,21 +41,14 @@ export function clamp(val: number, min: number, max: number): number {
   }
   return val;
 }
-function updateIndentLevel(
-  tr: Transaction,
-  delta: number,
-  types: string[],
-  editor: Editor
-): Transaction {
+function updateIndentLevel(tr: Transaction, delta: number, types: string[], editor: Editor): Transaction {
   const { doc, selection } = tr;
 
   if (!doc || !selection) {
     return tr;
   }
 
-  if (
-    !(selection instanceof TextSelection || selection instanceof AllSelection)
-  ) {
+  if (!(selection instanceof TextSelection || selection instanceof AllSelection)) {
     return tr;
   }
 
@@ -76,11 +69,7 @@ function updateIndentLevel(
   return tr;
 }
 
-export function setNodeIndentMarkup(
-  tr: Transaction,
-  pos: number,
-  delta: number
-): Transaction {
+export function setNodeIndentMarkup(tr: Transaction, pos: number, delta: number): Transaction {
   if (!tr.doc) {
     return tr;
   }

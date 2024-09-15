@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useTypexContext } from "@/hooks/useTypex";
 import { isUrlValid } from "@/lib/utils";
-import { Editor } from "@tiptap/core";
+import type { Editor } from "@tiptap/core";
 import { Check, Trash } from "lucide-react";
-import { FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 
 const LinkComponent = () => {
   const {

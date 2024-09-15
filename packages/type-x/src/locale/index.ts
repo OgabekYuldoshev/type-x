@@ -20,7 +20,7 @@ export const useTranslation = ({ locale }: TranslationProps) => {
 
       return translation[key] ?? key;
     },
-    [locale]
+    [locale],
   );
 
   return { t, language: locale };

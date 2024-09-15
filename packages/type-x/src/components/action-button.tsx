@@ -1,19 +1,14 @@
 import { icons } from "lucide-react";
-import { Button, ButtonProps } from "./ui/button";
+import { Button, type ButtonProps } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { GeneralActionProps } from "@/types";
+import type { GeneralActionProps } from "@/types";
 
 interface Props extends Omit<ButtonProps, "children"> {
   icon: keyof typeof icons;
   onActive?: () => boolean;
 }
 
-export const ActionButtons = ({
-  icon,
-  onActive,
-  variant = "outline",
-  ...props
-}: Props) => {
+export const ActionButtons = ({ icon, onActive, variant = "outline", ...props }: Props) => {
   const CustomIcon = icons[icon];
   return (
     <Button
@@ -28,15 +23,11 @@ export const ActionButtons = ({
 };
 
 export const createActionButtons = (
-  callback: (
-    p: GeneralActionProps
-  ) => React.ComponentProps<typeof ActionButtons>[]
+  callback: (p: GeneralActionProps) => React.ComponentProps<typeof ActionButtons>[],
 ) => {
   return (p: GeneralActionProps) => {
     const props = callback(p);
-    const components = props.map((prop, index) => (
-      <ActionButtons key={prop.icon + index} {...prop} />
-    ));
+    const components = props.map((prop, index) => <ActionButtons key={prop.icon + index} {...prop} />);
 
     (components as any).getProps = () => props;
 

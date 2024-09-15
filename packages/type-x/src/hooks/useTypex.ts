@@ -1,4 +1,4 @@
-import { Locale, useTranslation } from "@/locale";
+import { type Locale, useTranslation } from "@/locale";
 import { useEditor, type UseEditorOptions } from "@tiptap/react";
 import constate from "constate";
 

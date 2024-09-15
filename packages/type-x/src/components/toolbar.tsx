@@ -67,11 +67,7 @@ const Toolbar = () => {
       <Separator orientation="vertical" className="x-h-5" />
       {nodes({ editor, t })}
       <IntendComponent />
-      <ActionButtons
-        onClick={handlePageBreak}
-        icon={"FlipVertical"}
-        title={t("x.horizontal.rule")}
-      />
+      <ActionButtons onClick={handlePageBreak} icon={"FlipVertical"} title={t("x.horizontal.rule")} />
       <Separator orientation="vertical" className="x-h-5" />
       <LinkComponent />
       <TextAlignComponent />

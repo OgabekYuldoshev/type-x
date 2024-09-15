@@ -3,8 +3,7 @@ import { useTypexContext } from "@/hooks/useTypex";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
-const generateArray = (length: number) =>
-  Array.from({ length }).map((_, index) => index + 1);
+const generateArray = (length: number) => Array.from({ length }).map((_, index) => index + 1);
 
 const GRID_ROW = 10;
 const GRID_COL = 10;
@@ -18,21 +17,12 @@ const TableComponent = () => {
   const [grid, setGrid] = useState([0, 0]);
 
   function onCreateTable() {
-    editor
-      .chain()
-      .focus()
-      .insertTable({ rows: grid[0], cols: grid[1], withHeaderRow: false })
-      .run();
+    editor.chain().focus().insertTable({ rows: grid[0], cols: grid[1], withHeaderRow: false }).run();
     setOpen(false);
   }
 
   return (
-    <ActionPopover
-      title={t("x.table.style")}
-      open={open}
-      onOpenChange={setOpen}
-      icon="Table"
-    >
+    <ActionPopover title={t("x.table.style")} open={open} onOpenChange={setOpen} icon="Table">
       <div className="x-flex x-flex-col x-items-center x-justify-center">
         <div className="x-flex x-space-x-0.5">
           {generateArray(GRID_ROW).map((row) => (
@@ -42,7 +32,7 @@ const TableComponent = () => {
                   key={`${row}-${col}`}
                   className={cn(
                     "x-size-5 x-border x-rounded x-transition-all",
-                    col <= grid[1] && row <= grid[0] && "x-bg-primary"
+                    col <= grid[1] && row <= grid[0] && "x-bg-primary",
                   )}
                   onMouseOver={() => setGrid([row, col])}
                   onMouseDown={() => {
