@@ -3,6 +3,8 @@ import { useTypexContext } from "@/hooks/useTypex";
 import { BubbleMenu as TipTapBubbleMenu } from "@tiptap/react";
 import Headings from "./headings";
 import { Separator } from "./ui/separator";
+import { HighlightComponent } from "@/extentions/Highlight";
+import { ColorComponent } from "@/extentions/Color";
 
 const BubbleMenu = () => {
   const {
@@ -18,6 +20,8 @@ const BubbleMenu = () => {
       {baseMarks({ editor, t })}
       <Separator orientation="vertical" className="x-h-6" />
       <Headings />
+      <HighlightComponent />
+      <ColorComponent />
     </TipTapBubbleMenu>
   );
 };

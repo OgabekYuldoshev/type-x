@@ -5,6 +5,9 @@ import { TableComponent } from "@/extentions/Table";
 import { createActionButtons } from "./action-button";
 import { Separator } from "./ui/separator";
 import Headings from "./headings";
+import { HighlightComponent } from "@/extentions/Highlight";
+import { ColorComponent } from "@/extentions/Color";
+import IntendComponent from "@/extentions/Intend/intend-component";
 
 export const history = createActionButtons(({ editor, t }) => [
   {
@@ -26,21 +29,21 @@ export const nodes = createActionButtons(({ t, editor }) => [
     title: t("x.bulletlist"),
     icon: "List",
     disabled: !editor.can().toggleBulletList() || false,
-    onAction: () => editor.chain().toggleBulletList().run(),
+    onClick: () => editor.chain().toggleBulletList().run(),
     onActive: () => editor.isActive("bulletList"),
   },
   {
     title: t("x.orderlist"),
     icon: "ListOrdered",
     disabled: !editor.can().toggleOrderedList() || false,
-    onAction: () => editor.chain().toggleOrderedList().run(),
+    onClick: () => editor.chain().toggleOrderedList().run(),
     onActive: () => editor.isActive("orderedList"),
   },
   {
     title: t("x.codeblock"),
     icon: "SquareChartGantt",
     disabled: !editor.can().toggleCodeBlock() || false,
-    onAction: () => editor.chain().toggleCodeBlock().run(),
+    onClick: () => editor.chain().toggleCodeBlock().run(),
     onActive: () => editor.isActive("codeBlock"),
   },
 ]);
@@ -55,8 +58,11 @@ const Toolbar = () => {
       {history({ editor, t })}
       <Separator orientation="vertical" className="x-h-6" />
       <Headings />
+      <HighlightComponent />
+      <ColorComponent />
       <Separator orientation="vertical" className="x-h-6" />
       {nodes({ editor, t })}
+      <IntendComponent />
       <Separator orientation="vertical" className="x-h-6" />
       <TextAlignComponent />
       <TableComponent />

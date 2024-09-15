@@ -89,6 +89,9 @@ importers:
       '@tiptap/core':
         specifier: ^2.6.6
         version: 2.6.6(@tiptap/pm@2.6.6)
+      '@tiptap/extension-color':
+        specifier: ^2.6.6
+        version: 2.6.6(@tiptap/core@2.6.6)(@tiptap/extension-text-style@2.6.6)
       '@tiptap/extension-document':
         specifier: ^2.6.6
         version: 2.6.6(@tiptap/core@2.6.6)
@@ -102,6 +105,9 @@ importers:
         specifier: ^2.6.6
         version: 2.6.6(@tiptap/core@2.6.6)(@tiptap/pm@2.6.6)
       '@tiptap/extension-hard-break':
+        specifier: ^2.6.6
+        version: 2.6.6(@tiptap/core@2.6.6)
+      '@tiptap/extension-highlight':
         specifier: ^2.6.6
         version: 2.6.6(@tiptap/core@2.6.6)
       '@tiptap/extension-list-item':
@@ -161,6 +167,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.3.1
+      react-colorful:
+        specifier: ^5.6.1
+        version: 5.6.1(react-dom@18.3.1)(react@18.3.1)
       tailwind-merge:
         specifier: ^2.5.2
         version: 2.5.2
@@ -1678,6 +1687,16 @@ packages:
       '@tiptap/core': 2.6.6(@tiptap/pm@2.6.6)
     dev: false
 
+  /@tiptap/extension-color@2.6.6(@tiptap/core@2.6.6)(@tiptap/extension-text-style@2.6.6):
+    resolution: {integrity: sha512-aq2XnbWMak1yJxH2EoVKpCjFONRkZcX9D72LvvgOgtDQ62wG3/axZ75bT1B/NNfqlEp7U78Fpqib7jq/uCLYTg==}
+    peerDependencies:
+      '@tiptap/core': ^2.6.6
+      '@tiptap/extension-text-style': ^2.6.6
+    dependencies:
+      '@tiptap/core': 2.6.6(@tiptap/pm@2.6.6)
+      '@tiptap/extension-text-style': 2.6.6(@tiptap/core@2.6.6)
+    dev: false
+
   /@tiptap/extension-document@2.6.6(@tiptap/core@2.6.6):
     resolution: {integrity: sha512-6qlH5VWzLHHRVeeciRC6C4ZHpMsAGPNG16EF53z0GeMSaaFD/zU3B239QlmqXmLsAl8bpf8Bn93N0t2ABUvScw==}
     peerDependencies:
@@ -1737,6 +1756,14 @@ packages:
 
   /@tiptap/extension-heading@2.6.6(@tiptap/core@2.6.6):
     resolution: {integrity: sha512-bgx9vptVFi5yFkIw1OI53J7+xJ71Or3SOe/Q8eSpZv53DlaKpL/TzKw8Z54t1PrI2rJ6H9vrLtkvixJvBZH1Ug==}
+    peerDependencies:
+      '@tiptap/core': ^2.6.6
+    dependencies:
+      '@tiptap/core': 2.6.6(@tiptap/pm@2.6.6)
+    dev: false
+
+  /@tiptap/extension-highlight@2.6.6(@tiptap/core@2.6.6):
+    resolution: {integrity: sha512-Z02AYWm1AJAfhmfT4fGCI3YitijF4uNu+eiuq7OxhCiVf9IYaq8xlH2YMxa09QvMUo70ovklxk97+vQUUHeqfQ==}
     peerDependencies:
       '@tiptap/core': ^2.6.6
     dependencies:
@@ -3372,6 +3399,16 @@ packages:
 
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
+
+  /react-colorful@5.6.1(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    dev: false
 
   /react-dom@18.3.1(react@18.3.1):
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}

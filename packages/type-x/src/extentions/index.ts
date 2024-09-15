@@ -3,6 +3,9 @@ import Placeholder from "@tiptap/extension-placeholder";
 import { Underline as UnderlineExtension } from "@tiptap/extension-underline";
 import { TextAlignExtension } from "./TextAlign";
 import { TableExtension } from "./Table";
+import { HighlightExtension } from "./Highlight";
+import { ColorExtension } from "./Color";
+import { IndentExtension } from "./Intend";
 
 export const PlaceholderExtension = Placeholder.configure({
   placeholder: ({ node }) => {
@@ -19,5 +22,8 @@ export const defaultExtentions = [
   PlaceholderExtension,
   UnderlineExtension,
   TextAlignExtension,
-  TableExtension.configure(),
+  TableExtension,
+  HighlightExtension,
+  ColorExtension,
+  IndentExtension,
 ];

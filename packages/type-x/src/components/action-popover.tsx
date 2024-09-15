@@ -8,8 +8,10 @@ interface Props {
   icon: keyof typeof icons;
   open?: boolean;
   onOpenChange?(value: boolean): void;
+  onActive?: () => Boolean;
 }
 const ActionPopover = ({
+  onActive,
   title,
   icon,
   children,
@@ -20,7 +22,11 @@ const ActionPopover = ({
   return (
     <Popover open={open} onOpenChange={onOpenChange}>
       <PopoverTrigger asChild>
-        <Button variant="outline" size="icon" title={title}>
+        <Button
+          variant={onActive?.() ? "secondary" : "outline"}
+          size="icon"
+          title={title}
+        >
           <Icon size={18} />
         </Button>
       </PopoverTrigger>

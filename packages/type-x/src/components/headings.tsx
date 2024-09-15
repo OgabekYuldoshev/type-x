@@ -6,10 +6,10 @@ import { ActionButtons, createActionButtons } from "./action-button";
 export const headings = createActionButtons(({ editor, t }) => [
   {
     title: t("x.normal"),
-    icon: "ALargeSmall",
+    icon: "CaseSensitive",
     variant: "ghost",
     disabled: !editor.can().setParagraph() || false,
-    onAction: () => editor.chain().setParagraph().run(),
+    onClick: () => editor.chain().setParagraph().run(),
     onActive: () => editor.isActive("paragraph"),
   },
   {
@@ -17,7 +17,7 @@ export const headings = createActionButtons(({ editor, t }) => [
     icon: "Heading1",
     variant: "ghost",
     disabled: !editor.can().setHeading({ level: 1 }) || false,
-    onAction: () => editor.chain().setHeading({ level: 1 }).run(),
+    onClick: () => editor.chain().setHeading({ level: 1 }).run(),
     onActive: () => editor.isActive("heading", { level: 1 }),
   },
   {
@@ -25,7 +25,7 @@ export const headings = createActionButtons(({ editor, t }) => [
     icon: "Heading2",
     variant: "ghost",
     disabled: !editor.can().setHeading({ level: 2 }) || false,
-    onAction: () => editor.chain().setHeading({ level: 2 }).run(),
+    onClick: () => editor.chain().setHeading({ level: 2 }).run(),
     onActive: () => editor.isActive("heading", { level: 2 }),
   },
   {
@@ -33,7 +33,7 @@ export const headings = createActionButtons(({ editor, t }) => [
     icon: "Heading3",
     variant: "ghost",
     disabled: !editor.can().setHeading({ level: 3 }) || false,
-    onAction: () => editor.chain().setHeading({ level: 3 }).run(),
+    onClick: () => editor.chain().setHeading({ level: 3 }).run(),
     onActive: () => editor.isActive("heading", { level: 3 }),
   },
 ]);
@@ -56,10 +56,10 @@ const Headings = () => {
   return (
     <ActionPopover
       title={active?.title || "x.text.align.style"}
-      icon={active?.icon || "AlignJustify"}
+      icon={active?.icon || "CaseSensitive"}
     >
-      {items.map((props) => (
-        <ActionButtons {...props} />
+      {items.map((props, index) => (
+        <ActionButtons key={props.icon + index} {...props} />
       ))}
     </ActionPopover>
   );

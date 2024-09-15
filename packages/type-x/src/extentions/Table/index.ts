@@ -30,7 +30,7 @@ export const TableExtension = Table.extend<TableOptions>({
       TableCell.configure(this.options.cell),
     ];
   },
-});
+}).configure();
 
-export { default as TableComponent } from "./TableComponent";
-export { default as TableBubbleMenu } from "./TableBubbleMenu";
+export { default as TableComponent } from "./table-component";
+export { default as TableBubbleMenu } from "./table-buble-menu";

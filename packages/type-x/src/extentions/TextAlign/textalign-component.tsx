@@ -54,8 +54,8 @@ export const TextAlignComponent = () => {
       title={active?.title || "x.text.align.style"}
       icon={active?.icon || "AlignJustify"}
     >
-      {items.map((props) => (
-        <ActionButtons {...props} />
+      {items.map((props, index) => (
+        <ActionButtons key={props.icon + index} {...props} />
       ))}
     </ActionPopover>
   );
