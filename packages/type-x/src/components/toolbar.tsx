@@ -1,12 +1,12 @@
 import { useTypexContext } from "@/hooks/useTypex";
-import { renderBaseMarks } from "@/constants";
-import { createActionButtons } from "./action-button";
-import { Separator } from "./ui/separator";
-import { createActionSelection } from "./action-selection";
-import ActionPopover from "./action-popover";
 import { TextAlignComponent } from "@/extentions/TextAlign";
 import { TableComponent } from "@/extentions/Table";
-const renderHistoryCommands = createActionButtons(({ editor, t }) => [
+
+import { createActionButtons } from "./action-button";
+import { Separator } from "./ui/separator";
+import Headings from "./headings";
+
+export const history = createActionButtons(({ editor, t }) => [
   {
     title: t("x.undo"),
     icon: "Undo",
@@ -21,28 +21,7 @@ const renderHistoryCommands = createActionButtons(({ editor, t }) => [
   },
 ]);
 
-const renderBaseNodes = createActionSelection(({ t, editor }) => [
-  {
-    title: t("x.normal"),
-    icon: "ALargeSmall",
-    disabled: !editor.can().setParagraph() || false,
-    onAction: () => editor.chain().setParagraph().run(),
-    onActive: () => editor.isActive("paragraph"),
-  },
-  ...[1, 2, 3].map(
-    (level) =>
-      ({
-        title: t("x.heading" + level),
-        icon: "Heading" + level,
-        disabled: !editor.can().setHeading({ level } as any) || false,
-        onAction: () =>
-          editor
-            .chain()
-            .setHeading({ level } as any)
-            .run(),
-        onActive: () => editor.isActive("heading", { level }),
-      }) as any
-  ),
+export const nodes = createActionButtons(({ t, editor }) => [
   {
     title: t("x.bulletlist"),
     icon: "List",
@@ -73,12 +52,12 @@ const Toolbar = () => {
   } = useTypexContext();
   return (
     <div className="x-flex x-items-center x-border-b x-px-4 x-py-2 x-space-x-2">
-      {renderHistoryCommands({ editor, t })}
-      <Separator orientation="vertical" />
-      {renderBaseMarks({ editor, t })}
-      <Separator orientation="vertical" />
-      {renderBaseNodes({ editor, t })}
-      <Separator orientation="vertical" />
+      {history({ editor, t })}
+      <Separator orientation="vertical" className="x-h-6" />
+      <Headings />
+      <Separator orientation="vertical" className="x-h-6" />
+      {nodes({ editor, t })}
+      <Separator orientation="vertical" className="x-h-6" />
       <TextAlignComponent />
       <TableComponent />
     </div>

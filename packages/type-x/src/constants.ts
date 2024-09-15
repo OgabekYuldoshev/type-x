@@ -1,6 +1,6 @@
 import { createActionButtons } from "./components/action-button";
 
-export const renderBaseMarks = createActionButtons(({ editor, t }) => [
+export const baseMarks = createActionButtons(({ editor, t }) => [
   {
     title: t("x.bold"),
     icon: "Bold",

@@ -3,7 +3,7 @@ import { useTypexContext } from "@/hooks/useTypex";
 import { BubbleMenu, isActive, Editor } from "@tiptap/react";
 import { sticky, GetReferenceClientRect } from "tippy.js";
 
-const renderButtons = createActionButtons(({ editor, t }) => [
+const table = createActionButtons(({ editor, t }) => [
   {
     title: t("x.table.column.before"),
     icon: "BetweenHorizontalEnd",
@@ -119,7 +119,7 @@ const TableBubbleMenu = () => {
       }}
     >
       <div className="x-p-1 x-shadow x-border x-rounded x-flex x-gap-x-1 x-bg-background x-items-center">
-        {renderButtons({ editor, t })}
+        {table({ editor, t })}
       </div>
     </BubbleMenu>
   );

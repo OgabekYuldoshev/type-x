@@ -10,6 +10,7 @@ interface Props {
   onOpenChange?(value: boolean): void;
 }
 const ActionPopover = ({
+  title,
   icon,
   children,
   open,
@@ -18,8 +19,8 @@ const ActionPopover = ({
   const Icon = icons[icon];
   return (
     <Popover open={open} onOpenChange={onOpenChange}>
-      <PopoverTrigger>
-        <Button variant="outline" size="icon">
+      <PopoverTrigger asChild>
+        <Button variant="outline" size="icon" title={title}>
           <Icon size={18} />
         </Button>
       </PopoverTrigger>

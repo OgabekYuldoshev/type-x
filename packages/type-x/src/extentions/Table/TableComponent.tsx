@@ -11,7 +11,10 @@ const GRID_COL = 10;
 
 const TableComponent = () => {
   const [open, setOpen] = useState(false);
-  const { editor } = useTypexContext();
+  const {
+    editor,
+    translation: { t },
+  } = useTypexContext();
   const [grid, setGrid] = useState([0, 0]);
 
   function onCreateTable() {
@@ -24,7 +27,12 @@ const TableComponent = () => {
   }
 
   return (
-    <ActionPopover open={open} onOpenChange={setOpen} icon="Table">
+    <ActionPopover
+      title={t("x.table.style")}
+      open={open}
+      onOpenChange={setOpen}
+      icon="Table"
+    >
       <div className="x-flex x-flex-col x-items-center x-justify-center">
         <div className="x-flex x-space-x-0.5">
           {generateArray(GRID_ROW).map((row) => (

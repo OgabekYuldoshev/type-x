@@ -1,8 +1,9 @@
-import { createActionButtons } from "@/components/action-button";
+import { ActionButtons, createActionButtons } from "@/components/action-button";
 import ActionPopover from "@/components/action-popover";
 import { useTypexContext } from "@/hooks/useTypex";
+import { useMemo } from "react";
 
-const renderButtons = createActionButtons(({ editor, t }) => [
+const aligns = createActionButtons(({ editor, t }) => [
   {
     title: t("x.text.align.left"),
     icon: "AlignLeft",
@@ -39,9 +40,23 @@ export const TextAlignComponent = () => {
     translation: { t },
   } = useTypexContext();
 
+  const items = aligns({ editor, t }).getProps();
+
+  const active = useMemo(() => {
+    const activeElement = items.find((i) => i.onActive?.() || false);
+    if (activeElement) {
+      return activeElement;
+    }
+  }, [items]);
+
   return (
-    <ActionPopover icon="AlignJustify">
-      {renderButtons({ editor, t })}
+    <ActionPopover
+      title={active?.title || "x.text.align.style"}
+      icon={active?.icon || "AlignJustify"}
+    >
+      {items.map((props) => (
+        <ActionButtons {...props} />
+      ))}
     </ActionPopover>
   );
 };
