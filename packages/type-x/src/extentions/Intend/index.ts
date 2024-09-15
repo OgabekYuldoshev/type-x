@@ -60,7 +60,9 @@ function updateIndentLevel(tr: Transaction, delta: number, types: string[], edit
     if (types.includes(nodeType.name)) {
       tr = setNodeIndentMarkup(tr, pos, delta);
       return false;
-    } else if (isList(node.type.name, editor.extensionManager.extensions)) {
+    }
+
+    if (isList(node.type.name, editor.extensionManager.extensions)) {
       return false;
     }
     return true;

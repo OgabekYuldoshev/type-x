@@ -1,6 +1,6 @@
+import { Button } from "./ui/button";
 import type React from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { Button } from "./ui/button";
 import { icons } from "lucide-react";
 
 interface Props {

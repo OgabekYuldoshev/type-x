@@ -27,7 +27,7 @@ export const createActionButtons = (
 ) => {
   return (p: GeneralActionProps) => {
     const props = callback(p);
-    const components = props.map((prop, index) => <ActionButtons key={prop.icon + index} {...prop} />);
+    const components = props.map((prop) => <ActionButtons key={prop.icon} {...prop} />);
 
     (components as any).getProps = () => props;
 

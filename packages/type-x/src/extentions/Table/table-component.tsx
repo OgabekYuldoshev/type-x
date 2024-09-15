@@ -34,7 +34,12 @@ const TableComponent = () => {
                     "x-size-5 x-border x-rounded x-transition-all",
                     col <= grid[1] && row <= grid[0] && "x-bg-primary",
                   )}
-                  onMouseOver={() => setGrid([row, col])}
+                  onMouseOver={() => {
+                    setGrid([row, col]);
+                  }}
+                  onFocus={() => {
+                    setGrid([row, col]);
+                  }}
                   onMouseDown={() => {
                     onCreateTable();
                     setGrid([0, 0]);

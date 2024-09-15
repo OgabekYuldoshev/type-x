@@ -15,7 +15,7 @@ export const useTranslation = ({ locale }: TranslationProps) => {
     (key: string) => {
       const translation = locales[locale] as any;
       if (!translation) {
-        throw new Error("[Type-X]: Unsupported locale: " + locale);
+        throw new Error(`[Type-X]: Unsupported locale: ${locale}`);
       }
 
       return translation[key] ?? key;

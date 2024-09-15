@@ -43,6 +43,7 @@ const ColorPicker = ({ color = "#000000", onChange, onReset }: Props) => {
       <div className="x-grid x-grid-cols-7 x-gap-1 x-mt-2">
         {recommentaionColors.map((color) => (
           <button
+            type="button"
             key={color}
             className="x-size-6 x-rounded x-border"
             style={{ background: color }}
