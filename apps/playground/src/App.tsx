@@ -1,3 +1,4 @@
+import "type-x/globals.css";
 import { TypexEditor } from "type-x";
 
 const App = () => {
