@@ -4,17 +4,22 @@ import { cn } from "@/lib/utils";
 import { Editor } from "@tiptap/core";
 import { GeneralActionProps } from "@/types";
 
-interface Props extends Omit<ButtonProps, "children" | "variant"> {
+interface Props extends Omit<ButtonProps, "children"> {
   icon: keyof typeof icons;
   onActive?: () => boolean;
 }
 
-export const ActionButtons = ({ icon, onActive, ...props }: Props) => {
+export const ActionButtons = ({
+  icon,
+  onActive,
+  variant = "outline",
+  ...props
+}: Props) => {
   const CustomIcon = icons[icon];
   return (
     <Button
       size={"icon"}
-      variant={onActive?.() ? "secondary" : "outline"}
+      variant={onActive?.() ? "secondary" : variant}
       className={cn("x-h-7 x-w-7", props.className)}
       {...props}
     >

@@ -113,6 +113,18 @@ importers:
       '@tiptap/extension-placeholder':
         specifier: ^2.6.6
         version: 2.6.6(@tiptap/core@2.6.6)(@tiptap/pm@2.6.6)
+      '@tiptap/extension-table':
+        specifier: ^2.6.6
+        version: 2.6.6(@tiptap/core@2.6.6)(@tiptap/pm@2.6.6)
+      '@tiptap/extension-table-cell':
+        specifier: ^2.6.6
+        version: 2.6.6(@tiptap/core@2.6.6)
+      '@tiptap/extension-table-header':
+        specifier: ^2.6.6
+        version: 2.6.6(@tiptap/core@2.6.6)
+      '@tiptap/extension-table-row':
+        specifier: ^2.6.6
+        version: 2.6.6(@tiptap/core@2.6.6)
       '@tiptap/extension-text':
         specifier: ^2.6.6
         version: 2.6.6(@tiptap/core@2.6.6)
@@ -1799,6 +1811,40 @@ packages:
       '@tiptap/core': ^2.6.6
     dependencies:
       '@tiptap/core': 2.6.6(@tiptap/pm@2.6.6)
+    dev: false
+
+  /@tiptap/extension-table-cell@2.6.6(@tiptap/core@2.6.6):
+    resolution: {integrity: sha512-XakU9qnlYAf/ux4q7zgiJs2pvkjOl9mVzQw5j55aQHYLiw0gXomEgUbrkn7jhA7N6WP9PlngS3quwIDfyoqLvw==}
+    peerDependencies:
+      '@tiptap/core': ^2.6.6
+    dependencies:
+      '@tiptap/core': 2.6.6(@tiptap/pm@2.6.6)
+    dev: false
+
+  /@tiptap/extension-table-header@2.6.6(@tiptap/core@2.6.6):
+    resolution: {integrity: sha512-BX2cVTrOZzIQAAWrNjD2Dzk/RpCJWUqgdW2bh27x0nJwKfMWfqLPoplTTuCZ+J9yK7rlNj3jEhKewe/yR1Tudw==}
+    peerDependencies:
+      '@tiptap/core': ^2.6.6
+    dependencies:
+      '@tiptap/core': 2.6.6(@tiptap/pm@2.6.6)
+    dev: false
+
+  /@tiptap/extension-table-row@2.6.6(@tiptap/core@2.6.6):
+    resolution: {integrity: sha512-VN8MwrEbq2hs/BE3cizbasFMLfh0F9I9MF7cmU8V1j1Zju0ONUIEXOscO4TNFfCB8lf5tTwIp1sr+fxYUUprhg==}
+    peerDependencies:
+      '@tiptap/core': ^2.6.6
+    dependencies:
+      '@tiptap/core': 2.6.6(@tiptap/pm@2.6.6)
+    dev: false
+
+  /@tiptap/extension-table@2.6.6(@tiptap/core@2.6.6)(@tiptap/pm@2.6.6):
+    resolution: {integrity: sha512-Ay/IClmB9R8MjnLobGnA9tI0+7ev4GUwvNf/JA2razI8CeaMCJ7CcAzG6pnIp4d7I6ELWYmAt3vwxoRlsAZcEw==}
+    peerDependencies:
+      '@tiptap/core': ^2.6.6
+      '@tiptap/pm': ^2.6.6
+    dependencies:
+      '@tiptap/core': 2.6.6(@tiptap/pm@2.6.6)
+      '@tiptap/pm': 2.6.6
     dev: false
 
   /@tiptap/extension-text-align@2.6.6(@tiptap/core@2.6.6):

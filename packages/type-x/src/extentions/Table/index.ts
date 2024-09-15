@@ -1,0 +1,36 @@
+import { Table } from "@tiptap/extension-table";
+import { TableRow, TableRowOptions } from "@tiptap/extension-table-row";
+import {
+  TableHeader,
+  TableHeaderOptions,
+} from "@tiptap/extension-table-header";
+import { TableCell, TableCellOptions } from "@tiptap/extension-table-cell";
+
+export interface TableOptions {
+  HTMLAttributes: Record<string, any>;
+
+  row: Partial<TableRowOptions>;
+  header: Partial<TableHeaderOptions>;
+  cell: Partial<TableCellOptions>;
+}
+
+export const TableExtension = Table.extend<TableOptions>({
+  addOptions() {
+    return {
+      ...this.parent?.(),
+      resizable: true,
+      lastColumnResizable: true,
+      allowTableNodeSelection: false,
+    };
+  },
+  addExtensions() {
+    return [
+      TableRow.configure(this.options.row),
+      TableHeader.configure(this.options.header),
+      TableCell.configure(this.options.cell),
+    ];
+  },
+});
+
+export { default as TableComponent } from "./TableComponent";
+export { default as TableBubbleMenu } from "./TableBubbleMenu";

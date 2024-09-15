@@ -5,6 +5,7 @@ import { Separator } from "./ui/separator";
 import { createActionSelection } from "./action-selection";
 import ActionPopover from "./action-popover";
 import { TextAlignComponent } from "@/extentions/TextAlign";
+import { TableComponent } from "@/extentions/Table";
 const renderHistoryCommands = createActionButtons(({ editor, t }) => [
   {
     title: t("x.undo"),
@@ -79,6 +80,7 @@ const Toolbar = () => {
       {renderBaseNodes({ editor, t })}
       <Separator orientation="vertical" />
       <TextAlignComponent />
+      <TableComponent />
     </div>
   );
 };

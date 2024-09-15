@@ -8,6 +8,7 @@ import EditorContent from "./components/editor-content";
 import Toolbar from "./components/toolbar";
 import { defaultExtentions } from "./extentions";
 import BubbleMenu from "./components/bubble-menu";
+import { TableBubbleMenu } from "./extentions/Table";
 
 export const TypexEditor = forwardRef<HTMLDivElement>(function Editor(_, ref) {
   return (
@@ -24,6 +25,7 @@ export const TypexEditor = forwardRef<HTMLDivElement>(function Editor(_, ref) {
         <Toolbar />
         <EditorContent />
         <BubbleMenu />
+        <TableBubbleMenu />
       </TypexProvider>
     </div>
   );

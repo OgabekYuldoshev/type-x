@@ -6,11 +6,18 @@ import { icons } from "lucide-react";
 interface Props {
   title?: string;
   icon: keyof typeof icons;
+  open?: boolean;
+  onOpenChange?(value: boolean): void;
 }
-const ActionPopover = ({ icon, children }: React.PropsWithChildren<Props>) => {
+const ActionPopover = ({
+  icon,
+  children,
+  open,
+  onOpenChange,
+}: React.PropsWithChildren<Props>) => {
   const Icon = icons[icon];
   return (
-    <Popover>
+    <Popover open={open} onOpenChange={onOpenChange}>
       <PopoverTrigger>
         <Button variant="outline" size="icon">
           <Icon size={18} />
