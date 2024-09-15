@@ -1,4 +1,4 @@
-import { createActionButtons } from "./components/action-buttons";
+import { createActionButtons } from "./components/action-button";
 
 export const renderBaseMarks = createActionButtons(({ editor, t }) => [
   {

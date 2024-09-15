@@ -1,6 +1,7 @@
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
-import { Underline } from "@tiptap/extension-underline";
+import { Underline as UnderlineExtension } from "@tiptap/extension-underline";
+import { TextAlignExtension } from "./TextAlign";
 
 export const PlaceholderExtension = Placeholder.configure({
   placeholder: ({ node }) => {
@@ -15,5 +16,6 @@ export const PlaceholderExtension = Placeholder.configure({
 export const defaultExtentions = [
   StarterKit.configure(),
   PlaceholderExtension,
-  Underline,
+  UnderlineExtension,
+  TextAlignExtension,
 ];

@@ -2,6 +2,7 @@ import { icons } from "lucide-react";
 import { Button, ButtonProps } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { Editor } from "@tiptap/core";
+import { GeneralActionProps } from "@/types";
 
 interface Props extends Omit<ButtonProps, "children" | "variant"> {
   icon: keyof typeof icons;
@@ -22,16 +23,12 @@ export const ActionButtons = ({ icon, onActive, ...props }: Props) => {
   );
 };
 
-export type CreateButtonProps = {
-  editor: Editor;
-  t: (key: string) => string;
-};
 export const createActionButtons = (
   callback: (
-    p: CreateButtonProps
+    p: GeneralActionProps
   ) => React.ComponentProps<typeof ActionButtons>[]
 ) => {
-  return (p: CreateButtonProps) => {
+  return (p: GeneralActionProps) => {
     const props = callback(p);
     return props.map((prop, index) => (
       <ActionButtons key={prop.icon + index} {...prop} />
