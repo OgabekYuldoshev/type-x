@@ -16,6 +16,10 @@
     "turbo": "^2.1.2",
     "typescript": "^5.4.5"
   },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint && pnpm format",
+    "pre-push": "pnpm lint:fix && pnpm format:fix"
+  },
   "packageManager": "pnpm@8.15.6",
   "engines": {
     "node": ">=18"
