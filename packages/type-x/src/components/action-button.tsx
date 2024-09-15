@@ -1,7 +1,6 @@
 import { icons } from "lucide-react";
 import { Button, ButtonProps } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { Editor } from "@tiptap/core";
 import { GeneralActionProps } from "@/types";
 
 interface Props extends Omit<ButtonProps, "children"> {

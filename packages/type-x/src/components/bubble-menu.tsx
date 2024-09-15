@@ -5,6 +5,7 @@ import Headings from "./headings";
 import { Separator } from "./ui/separator";
 import { HighlightComponent } from "@/extentions/Highlight";
 import { ColorComponent } from "@/extentions/Color";
+import { LinkComponent } from "@/extentions/Link";
 
 const BubbleMenu = () => {
   const {
@@ -18,7 +19,8 @@ const BubbleMenu = () => {
       className="x-inline-flex x-items-center x-p-2 x-gap-x-2 x-bg-background x-border x-rounded x-shadow"
     >
       {baseMarks({ editor, t })}
-      <Separator orientation="vertical" className="x-h-6" />
+      <Separator orientation="vertical" className="x-h-5" />
+      <LinkComponent />
       <Headings />
       <HighlightComponent />
       <ColorComponent />

@@ -36,8 +36,8 @@ const table = createActionButtons(({ editor, t }) => [
     title: t("x.table.row.after"),
     icon: "BetweenVerticalStart",
     variant: "ghost",
-    onClick: () => editor.chain().focus().addColumnAfter().run(),
-    disabled: !editor.can().addColumnAfter(),
+    onClick: () => editor.chain().focus().addRowAfter().run(),
+    disabled: !editor.can().addRowAfter(),
   },
   {
     title: t("x.table.row.delete"),
@@ -48,7 +48,7 @@ const table = createActionButtons(({ editor, t }) => [
   },
   {
     title: t("x.table.merge.cell"),
-    icon: "TableRowsSplit",
+    icon: "TableCellsMerge",
     variant: "ghost",
     onClick: () => editor.chain().focus().mergeCells().run(),
     disabled: !editor.can().mergeCells(),

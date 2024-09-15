@@ -5,8 +5,7 @@ import constate from "constate";
 export type TypexProps = UseEditorOptions & {
   locale: Locale;
 };
-
-export const useTypex = ({ locale, ...props }: TypexProps) => {
+const useTypex = ({ locale, ...props }: TypexProps) => {
   const editor = useEditor(props);
   const translation = useTranslation({ locale });
 

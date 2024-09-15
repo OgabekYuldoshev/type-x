@@ -6,6 +6,7 @@ import { TableExtension } from "./Table";
 import { HighlightExtension } from "./Highlight";
 import { ColorExtension } from "./Color";
 import { IndentExtension } from "./Intend";
+import { LinkExtension } from "./Link";
 
 export const PlaceholderExtension = Placeholder.configure({
   placeholder: ({ node }) => {
@@ -26,4 +27,5 @@ export const defaultExtentions = [
   HighlightExtension,
   ColorExtension,
   IndentExtension,
+  LinkExtension,
 ];

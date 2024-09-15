@@ -2,12 +2,13 @@ import { useTypexContext } from "@/hooks/useTypex";
 import { TextAlignComponent } from "@/extentions/TextAlign";
 import { TableComponent } from "@/extentions/Table";
 
-import { createActionButtons } from "./action-button";
+import { ActionButtons, createActionButtons } from "./action-button";
 import { Separator } from "./ui/separator";
 import Headings from "./headings";
 import { HighlightComponent } from "@/extentions/Highlight";
 import { ColorComponent } from "@/extentions/Color";
 import IntendComponent from "@/extentions/Intend/intend-component";
+import LinkComponent from "@/extentions/Link/link-component";
 
 export const history = createActionButtons(({ editor, t }) => [
   {
@@ -53,17 +54,26 @@ const Toolbar = () => {
     editor,
     translation: { t },
   } = useTypexContext();
+  function handlePageBreak() {
+    editor.chain().setHorizontalRule().run();
+  }
   return (
     <div className="x-flex x-items-center x-border-b x-px-4 x-py-2 x-space-x-2">
       {history({ editor, t })}
-      <Separator orientation="vertical" className="x-h-6" />
+      <Separator orientation="vertical" className="x-h-5" />
       <Headings />
       <HighlightComponent />
       <ColorComponent />
-      <Separator orientation="vertical" className="x-h-6" />
+      <Separator orientation="vertical" className="x-h-5" />
       {nodes({ editor, t })}
       <IntendComponent />
-      <Separator orientation="vertical" className="x-h-6" />
+      <ActionButtons
+        onClick={handlePageBreak}
+        icon={"FlipVertical"}
+        title={t("x.horizontal.rule")}
+      />
+      <Separator orientation="vertical" className="x-h-5" />
+      <LinkComponent />
       <TextAlignComponent />
       <TableComponent />
     </div>
