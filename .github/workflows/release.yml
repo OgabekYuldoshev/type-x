@@ -11,12 +11,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+      - uses: pnpm/action-setup@v4
+
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build the project
-        run: yarn turbo run build
+        run: pnpm build
 
       - name: Run semantic-release
         run: npx semantic-release
